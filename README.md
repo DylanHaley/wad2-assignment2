@@ -49,7 +49,7 @@ Name: Dylan Haley
 ---------------------------------
 
 [model]: ./data.jpg
-[movieDetail]: ./public/movieDetail.png
+[movieDetail]: ./moviesApp/public/movieDetail.png
 [review]: ./public/review.png
 [reviewLink]: ./public/reviewlink.png
 [cardLink]: ./public/cardlink.png
