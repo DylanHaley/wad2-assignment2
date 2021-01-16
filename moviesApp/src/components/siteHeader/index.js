@@ -11,8 +11,18 @@ const SiteHeader = () => {
       <nav className="navbar navbar-expand ">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-link text-danger" to="/">
+            <Link className="nav-link text-danger" to="/home">
               Home
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-danger" to="/login">
+              Login
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-danger" to="/signUp">
+              Sign Up
             </Link>
           </li>
           <li className="nav-item">
@@ -28,11 +38,6 @@ const SiteHeader = () => {
           <li className="nav-item">
             <Link className="nav-link text-danger" to="/movies/nowplaying">
               Now PLaying
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link text-danger" to="/movies/latest">
-              Latest
             </Link>
           </li>
         </ul>

@@ -1,6 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
+import LoginPage from "./pages/loginPage";
+import SignUpPage from "./pages/signUpPage";
+import PrivateRoute from "./routes/privateRoute";
+import AuthProvider from "./contexts/authContext";
+import UserHomePage from "./pages/userHomePage"
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage'
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom"   
@@ -18,24 +23,29 @@ const App = () => {
   return (
       <BrowserRouter>
         <div className="jumbotron">
+          <AuthProvider>
           <SiteHeader />      {}
           <div className="container-fluid">
           <MoviesContextProvider>     {}
           <GenresContextProvider>    {}
             <Switch>
-          <Route exact path="/reviews/form" component={AddMovieReviewPage} />    
-          <Route path="/reviews/:id" component={MovieReviewPage} />
-          <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-          <Route exact path="/movies/upcoming" component={UpcomingMovies}/>
-          <Route exact path="/movies/nowplaying" component={NowPlayingMovies}/>
-          <Route exact path="/movies/latest" component={LatestMovies}/>
-          <Route path="/movies/:id" component={MoviePage} />
+          <PrivateRoute exact path="/reviews/form" component={AddMovieReviewPage} />    
+          <PrivateRoute path="/reviews/:id" component={MovieReviewPage} />
+          <PrivateRoute exact path="/movies/favorites" component={FavoriteMoviesPage} />
+          <PrivateRoute exact path="/movies/upcoming" component={UpcomingMovies}/>
+          <PrivateRoute exact path="/movies/nowplaying" component={NowPlayingMovies}/>
+          <PrivateRoute exact path="/movies/latest" component={LatestMovies}/>
+          <PrivateRoute path="/movies/:id" component={MoviePage} />
+          <PrivateRoute path="/home" component={UserHomePage}/>
+          <Route exact path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignUpPage} />
           <Route path="/" component={HomePage} />
           <Redirect from="*" to="/" />
         </Switch>
         </GenresContextProvider>    
         </MoviesContextProvider>   
       </div>
+      </AuthProvider>
     </div>
   </BrowserRouter>
   );
