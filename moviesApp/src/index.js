@@ -14,7 +14,6 @@ import UpcomingMovies from './pages/upcomingMovies';
 import NowPlayingMovies from './pages/nowPlayingMovies';
 import LatestMovies from './pages/latestMovies';
 
-
 const App = () => {
   return (
       <BrowserRouter>

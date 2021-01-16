@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies } from "../api/movie-api";
+import { getMovies, getMovieDetails } from "../api/movie-api";
 
 export const MoviesContext = createContext(null);
 
@@ -34,7 +34,7 @@ const reducer = (state, action) => {
 };
 
 const MoviesContextProvider = (props) => {
-  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], nowplaying: [], latest: [] });
+  const [state, dispatch] = useReducer(reducer, { movies: [], upcoming: [], nowplaying: [] });
 
   const addToFavorites = (movieId) => {
     const index = state.movies.map((m) => m.id).indexOf(movieId);
