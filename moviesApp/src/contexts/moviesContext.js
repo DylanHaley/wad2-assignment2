@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getMovies, getMovieDetails } from "../api/movie-api";
+import { getMovies, getUpcoming, getNowPlaying } from "../api/movie-api";
 
 export const MoviesContext = createContext(null);
 
@@ -50,17 +50,17 @@ const MoviesContextProvider = (props) => {
     });
   }, []);
 
-  // useEffect(() => {
-  //   getUpcomingMovies().then((movies) => {
-  //     dispatch({ type: "load-upcoming", payload: { movies } });
-  //   });
-  // }, []);
+  useEffect(() => {
+    getUpcoming().then((movies) => {
+      dispatch({ type: "load-upcoming", payload: { movies } });
+    });
+  }, []);
 
-  // useEffect(() => {
-  //   getNowPlayingMovies().then((movies) => {
-  //     dispatch({ type: "load-nowplaying", payload: { movies } });
-  //   });
-  // }, []);
+  useEffect(() => {
+    getNowPlaying().then((movies) => {
+      dispatch({ type: "load-nowplaying", payload: { movies } });
+    });
+  }, []);
 
   return (
     <MoviesContext.Provider

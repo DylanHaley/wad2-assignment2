@@ -54,3 +54,21 @@ export const getMovies = () => {
     }
     ).then(res => res.json());
   };
+
+  export const getUpcoming = () => {
+    return fetch(
+       '/api/upcoming',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
+
+  export const getNowPlaying = () => {
+    return fetch(
+       '/api/nowPlaying',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
